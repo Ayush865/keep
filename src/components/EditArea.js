@@ -4,7 +4,7 @@ import { IoIosAdd } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
 import { IoMdClose } from "react-icons/io";
 
-function EditArea({ title, content, isPinned, id,onEditClose }) {
+function EditArea({ title, content, isPinned, id,onEditClose,onShowToastWarn,onShowToastSuccess }) {
 
   const [note, setNote] = useState({
     title: title,
@@ -30,16 +30,17 @@ function EditArea({ title, content, isPinned, id,onEditClose }) {
     if(note.title==="")
     {
       
-      alert("No title!"); 
+      onShowToastWarn("No title"); 
     }
     else if(note.content==="")
     {
-      alert("No content!");
+      onShowToastWarn("No content");
     }
     else
     {
       await firebase.firestore().collection('notes').doc(id).update({title:note.title, body:note.content});
       onEditClose();
+      onShowToastSuccess("Updated note successfully")
       setNote({title:'', content:''});
     }
   

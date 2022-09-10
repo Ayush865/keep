@@ -1,16 +1,14 @@
 import React from "react";
-
+import logo from "../images/keep-logo.png"
 function Header(p) {
-  const logo = (
-    <img
-      src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
-      alt="logo"
-    />
-  );
+
   return (
     <div className="header">
-      {logo}
-      <h1>Keep</h1>
+      <img
+      src={logo}
+      alt="logo"
+      />
+      <h1>SKeeps</h1>
     </div>
   );
 }

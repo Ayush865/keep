@@ -2,12 +2,13 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 const Config = {
-  apiKey: "AIzaSyA1jNhhizHoGIumBJggacDBma_ptPjhmj8",
-  authDomain: "notes-2d27a.firebaseapp.com",
-  projectId: "notes-2d27a",
-  storageBucket: "notes-2d27a.appspot.com",
-  messagingSenderId: "286917205176",
-  appId: "1:286917205176:web:c0f5f8c0f560d8fa25684d"
+  apiKey: process.env.REACT_KEY_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGESENDERID,
+  appId: process.env.REACT_APP_APPID
+
   };
 
   

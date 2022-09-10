@@ -7,8 +7,11 @@ import Header from "./components/Header";
 import CreateArea from "./components/CreateArea";
 import Note from "./components/Note";
 import Count from "./components/Count";
-import Footer from "./components/Footer";
 import EditArea from './components/EditArea';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
+toast.configure();
 
 
 function App(props) {
@@ -42,7 +45,7 @@ function App(props) {
        query.docs.map((item)=>{
           setCounterId(item.id);
           let count = item.data().count;
-          if(count==0)
+          if(count===0)
             setTotalPages(0);
           else
           {
@@ -51,6 +54,30 @@ function App(props) {
         })     
   })
 
+}
+
+const showToastWarn = (data) => {
+  toast.warn(data, {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined, 
+    });      
+}
+
+const showToastSuccess = (data) => {
+  toast.info(data, {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    });      
 }
 
   function onEdit({title, content, id}){
@@ -64,17 +91,17 @@ function App(props) {
 
   async function unpin(id) {
     await firebase.firestore().collection('notes').doc(id).update({isPinned : false});
-   
+    showToastSuccess("Unpinned note");
   }
 
   async function pin(id) {
     await firebase.firestore().collection('notes').doc(id).update({isPinned : true});
-   
+    showToastWarn("Pinned note");
   }
 
   async function deleteNotes(id) {
     await firebase.firestore().collection('notes').doc(id).delete();
-    
+    showToastSuccess("Deleted note");
     if(counterId){
       firebase.firestore().collection("counter").doc(counterId).update({count:firebase.firestore.FieldValue.increment(-1)})
     }
@@ -86,7 +113,7 @@ function App(props) {
       setNote({title:"", content:"", id:""});
       setEditOverlay("");
     }else{
-      window.alert("Already closed !");
+      showToastWarn("Already closed");
     }
     
   }
@@ -104,6 +131,8 @@ function App(props) {
         unpin={unpin}
         onEdit={onEdit}
         isEditActive={editTrue}
+        onShowToastWarn={showToastWarn}
+        onShowToastSuccess={showToastSuccess}
       />:<></>
     
   ))
@@ -122,7 +151,8 @@ function App(props) {
       <Header />
       <div className="container-fluid align-items-space-between">
 
-        {!editTrue && <CreateArea counterId={counterId}/>}
+        {!editTrue && <CreateArea counterId={counterId} onShowToastWarn={showToastWarn}
+        onShowToastSuccess={showToastSuccess}/>}
         <div className="count pt-3">
           <h4>Saved Notes </h4>
         </div>
@@ -131,7 +161,10 @@ function App(props) {
 
             {editTrue && <EditArea title={note.title} content={note.content}
                   id={note.id} onEditClose={onEditCloseHandler}
-                  counterId={counterId}/>}
+                  counterId={counterId}
+                  onShowToastWarn={showToastWarn}
+                  onShowToastSuccess={showToastSuccess}
+                  />}
           </div>
         </div>
         
@@ -140,9 +173,7 @@ function App(props) {
             {allNotes}
           
           </div>
-        </div>
-      </div>
-      <div className=" d-flex justify-content-center mt-5 mb-3 pg-count">
+          <div className=" d-flex justify-content-center mt-5 mb-3 pg-count">
             {
               
               [...Array(totalPages)].map((elementInArray, index) => ( 
@@ -151,8 +182,12 @@ function App(props) {
                 </div>
               ))
             }     
-          </div>
+        </div>
+        </div>
+      </div>
+      
     </div>
+
   );
 }
 

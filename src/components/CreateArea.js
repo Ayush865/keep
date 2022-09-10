@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import firebase from "../services/firebase";
 import { IoIosAdd } from "react-icons/io";
 
-function CreateArea({counterId}) {
+function CreateArea({counterId,onShowToastWarn,onShowToastSuccess}) {
   const [isExpanded, setExpanded] = useState(false);
 
   const [note, setNote] = useState({
@@ -27,12 +27,11 @@ function CreateArea({counterId}) {
     event.preventDefault();
     if(note.title==="")
     {
-      
-      alert("No title!"); 
+      onShowToastWarn("No Title");
     }
     else if(note.content==="")
     {
-      alert("No content!");
+      onShowToastWarn("No content");
     }
     else
     {
@@ -43,7 +42,7 @@ function CreateArea({counterId}) {
       timeStamp:firebase.firestore.FieldValue.serverTimestamp(), 
       isPinned:false    
     })
-
+    onShowToastSuccess("Added to saved notes");
     setNote({title:'', content:''});
     if(counterId){
         firebase.firestore().collection("counter").doc(counterId).update({count:firebase.firestore.FieldValue.increment(1)})

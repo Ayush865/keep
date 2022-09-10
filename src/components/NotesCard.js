@@ -10,7 +10,7 @@ function NotesCard({ title, content, isPinned, onDelete, id, pin, unpin, onEdit 
   }
   
   return (
-    <div className="mt-3 col-lg-4 col-md-6 col-sm-7 mb-3 d-flex justify-content-center">
+    <div className="mynote mt-3 col-lg-4 col-md-6 col-sm-7 mb-3 d-flex justify-content-center">
     <div className="note p-3">
       <div className="note-left" onClick={onEditHandler}>
         <h1>{title}</h1>
