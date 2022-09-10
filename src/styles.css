@@ -1,0 +1,224 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html{
+    font-family: sans-serif;
+  }
+  
+  body{
+    background-color: white;
+  }
+  .header {
+    background-color: #ffffff;
+    margin: auto -10px;
+    padding: 10px 20px; 
+    box-shadow: 0 0 2px 0 rgb(110, 110, 110);  
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+  }
+  .myForm{
+    /* border: 2px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  form {
+    /* position: relative;
+    width: 600px;
+    margin: 32px auto 50px auto; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    min-width:320px;
+    background: #fff;
+    padding: 7px;
+    border-radius: 7px;
+    box-shadow: 0 1px 7px rgb(128, 128, 128);
+  }
+  form input {
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+  }
+  form textarea {
+    width: 100%;
+    border: none;
+    padding: 4px 10px;
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+  }
+  
+  .form-button {
+    position: relative;
+    display: flex;
+    /* justify-content: flex-end;
+    align-items: center; */
+    align-self: flex-end;
+    right: 18px;
+    bottom: -18px;
+    background: rgb(0, 200, 18);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 3px rgb(165, 165, 165);
+    cursor: pointer;
+    outline: none;
+  }
+
+#root{
+  height: 100vh;
+}
+.App{
+  height: 100%;
+}
+    .form-button-cross {
+      position: relative;
+      display: flex;
+      /* justify-content: flex-end;
+      align-items: center; */
+      align-self: flex-end;
+      right: 70px;
+      top: 54px;
+      background: rgb(240, 18, 0);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      
+      box-shadow: 0 1px 3px rgb(165, 165, 165);
+      cursor: pointer;
+      outline: none;
+    }
+  .allnotes{
+    display: flex;
+    /* justify-content: space-evenly; */
+    /* border: 2px solid red; */
+    margin: 10px;
+  }
+
+  .editOverlay{
+
+    opacity:0.55;
+  }
+
+  .form-edit{
+    transition: transform .35s ease-in-out;
+  }
+
+  .page{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(0, 200, 18);
+    color: white;
+    border-radius:50%;
+  }
+
+  .note {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    /* display: flex; */
+    /* width: 240px; */
+    border-radius: 7px;
+    box-shadow: 0 2px 5px rgb(175, 175, 175);
+    padding: 10px;
+    width:340px;
+    min-width: 300px;
+    /* margin: 16px;
+    float: left;
+    margin-right: 0; */
+  }
+  .note-left{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn{
+    width: 25px;
+  }
+  
+  .note-left{
+    width: 300px;
+  }
+
+  .note-right{
+    display: flex;
+    flex-direction: column;
+    width:30px;
+  }
+
+  .note h1 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .note p {
+    font-size: 1rem;
+    color: #6f212b;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .note button {
+    position: relative;
+    float: right;
+    color: #f88651;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .count {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+  
+  .footer {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+  }
+  
+  .note:hover{
+    cursor:pointer;
+  }
+
+  .notes-container{
+    
+    align-items:center;
+    
+  }
+  .pg-count{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /* margin-bottom: 20px; */
+  }
+  .page:hover{
+    cursor:pointer;
+  }
+  
+::-webkit-scrollbar {
+  display: none;
+}
