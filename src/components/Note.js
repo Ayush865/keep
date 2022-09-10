@@ -5,7 +5,8 @@ import { TbPinnedOff} from "react-icons/tb";
 import NotesCard from "./NotesCard";
 import EditArea from "./EditArea";
 
-function Note({ title, content, isPinned, onDelete, id, pin, unpin, onEdit,isEditActive }) {
+
+function Note({ title, content, isPinned, onDelete, id, pin, unpin, onEdit,isEditActive,onShowToastWarn }) {
   const [edit, setEdit] = useState(false);
 
   function onEditHandler(){
@@ -13,7 +14,7 @@ function Note({ title, content, isPinned, onDelete, id, pin, unpin, onEdit,isEdi
       setEdit(true);
       onEdit({title, content, id});
     }else{
-      window.alert("Please complete the changes first !");
+      onShowToastWarn("Please complete the changes first or click cancel!");
     }
     
   }
