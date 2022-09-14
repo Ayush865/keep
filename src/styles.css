@@ -181,6 +181,8 @@ font-family: 'Roboto', sans-serif; */
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     /* font-weight: 700; */
+    overflow: scroll;
+    max-width: 300px;
   }
 
   .btn{
