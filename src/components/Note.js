@@ -25,6 +25,7 @@ function Note({ title, content, isPinned, onDelete, id, pin, unpin, onEdit,isEdi
       <NotesCard title={title} content={content} isPinned={isPinned}
                 onDelete={onDelete} id={id} pin={pin} unpin={unpin}
                 onEdit={onEditHandler}
+                
       />
     
   );

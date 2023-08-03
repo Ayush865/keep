@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import React, { useState, useEffect, useRef } from "react";
-
 import "./styles.css";
 import firebase from "./services/firebase";
 import Header from "./components/Header";
@@ -12,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
 toast.configure();
-
 
 function App(props) {
   const [arr, setArr] = useState([]);

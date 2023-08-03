@@ -47,7 +47,7 @@ function EditArea({ title, content, isPinned, id,onEditClose,onShowToastWarn,onS
   }
 
   return (
-    <div className="mt-3 col-lg-12 col-md-12 col-sm-12 mb-3 d-flex justify-content-center form-edit">
+    <div className="mt-3 col-lg-12 col-md-12 col-sm-12 mb-3 d-flex justify-content-center form-edit " >
       
       <form >
           
