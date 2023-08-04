@@ -1,12 +1,12 @@
 import React,{useState} from "react";
-import { MdDelete} from "react-icons/md";
-import {AiFillPushpin} from "react-icons/ai";
-import { TbPinnedOff} from "react-icons/tb";
+// import { MdDelete} from "react-icons/md";
+// import {AiFillPushpin} from "react-icons/ai";
+// import { TbPinnedOff} from "react-icons/tb";
 import NotesCard from "./NotesCard";
-import EditArea from "./EditArea";
+// import EditArea from "./EditArea";
 
 
-function Note({ title, content, isPinned, onDelete, id, pin, unpin, onEdit,isEditActive,onShowToastWarn }) {
+function Note({ title, content, isPinned, onDelete, id, pin, unpin, onEdit,isEditActive,onShowToastWarn,onShowToastSuccess }) {
   const [edit, setEdit] = useState(false);
 
   function onEditHandler(){
@@ -25,6 +25,7 @@ function Note({ title, content, isPinned, onDelete, id, pin, unpin, onEdit,isEdi
       <NotesCard title={title} content={content} isPinned={isPinned}
                 onDelete={onDelete} id={id} pin={pin} unpin={unpin}
                 onEdit={onEditHandler}
+                onShowToastSuccess={onShowToastSuccess}
                 
       />
     

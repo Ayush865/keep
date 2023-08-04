@@ -40,7 +40,7 @@ function CreateArea({counterId,onShowToastWarn,onShowToastSuccess}) {
       tagline:"test",
       body:note.content,
       timeStamp:firebase.firestore.FieldValue.serverTimestamp(), 
-      isPinned:false    
+      isPinned:false
     })
     onShowToastSuccess("Added to saved notes");
     setNote({title:'', content:''});

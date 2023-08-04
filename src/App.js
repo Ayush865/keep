@@ -5,7 +5,7 @@ import firebase from "./services/firebase";
 import Header from "./components/Header";
 import CreateArea from "./components/CreateArea";
 import Note from "./components/Note";
-import Count from "./components/Count";
+// import Count from "./components/Count";
 import EditArea from './components/EditArea';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
@@ -132,7 +132,6 @@ const showToastSuccess = (data) => {
         onShowToastWarn={showToastWarn}
         onShowToastSuccess={showToastSuccess}
       />:<></>
-    
   ))
 
   const incrementPage=(index)=>{
